@@ -12,8 +12,10 @@ class classroom
 	Time start, duration;
 	date d;
 	student st[40];
+	int num_of_sessions;
+	bool forums = false;
 public:
-	classroom(string id, string l, string t , bool v_p, Time s, Time du, date dd)
+	classroom(string id, string l, string t , bool v_p, bool f ,Time s, Time du, date dd , int nos = 0)
 	{
 		ID = id;
 		lesson = l;
@@ -22,6 +24,17 @@ public:
 		start = s;
 		duration = du;
 		d = dd;
+		forums = f ;
+		num_of_sessions = nos;
+
+		
+		if (forums == true)
+		{
+			cin >> num_of_sessions;
+			
+		}
+
+			
 		int i, cnt = 0;
 		cin >> i;
 		while (i < 1000 or i > 9999)
@@ -32,7 +45,9 @@ public:
 			cnt++;
 			cin >> i;
 		}
+		
 	}
+
 	
 
 };
