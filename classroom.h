@@ -7,6 +7,7 @@
 using namespace std;
 class classroom // Classroom class for programming classroom code.
 {
+	friend bool interference(classroom t1, classroom t2);
 	string Class_ID, lesson, teacher_name;// three variable to store the Class ID,lesson and teacher's name.
 	bool video_projector = true;// A boolean variable to store the video projector.
 	bool forums = false;// A boolean variable to store the forums.
