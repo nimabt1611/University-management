@@ -9,12 +9,13 @@ class classroom // Classroom class for programming classroom code.
 {
 	friend bool interference(classroom t1, classroom t2);
 	string Class_ID, lesson, teacher_name;// three variable to store the Class ID,lesson and teacher's name.
-	bool video_projector = true;// A boolean variable to store the video projector.
+	bool video_projector = false;// A boolean variable to store the video projector.
 	bool forums = false;// A boolean variable to store the forums.
 	int num_of_sessions;// A variable to store the number of sessions.
 	Time start, duration;// two object's form Time class.
 	date d;// An object from date class.
 	student st[40];//An array like object from student class.
+	static int count;
 	
 	
 public:
@@ -30,26 +31,7 @@ public:
 		d = dd;
 		forums = f ;
 		num_of_sessions = nos;
-
-		
-		if (forums == true)//A condition to check the class type and get the nimber of sessoins if the condition is true.
-		{
-			cin >> num_of_sessions;
-			
-		}
-
-			
-		int i, cnt = 0;//Two variabes to store student's number ID and number of stdent's .
-		cin >> i;//get a student number. 
-		while (i < 1000 or i > 9999)// A while loop to get the desired number of student name's and number's ID.
-		{
-			string name;
-			cin >> name;
-			st[cnt].set(name, i);
-			cnt++;
-			cin >> i;
-		}
-
+		count++;
 	} 
 
 	string ret_ClassID() { return Class_ID; }//A function to return the Class ID.
@@ -64,7 +46,11 @@ public:
 	void set_teach_name (string teach_name) { teacher_name = teach_name; }// A function to set teacher's name.
 	void set_vp(bool v_p) { video_projector = v_p; }// A function to set videp projector.
 	void set_forums(bool f ) { forums = f; }// A function to set forums.
-	int ret_num_s(int n) { num_of_sessions = n; }// A function to set number of sessions.
+	void set_num_s(int n) { num_of_sessions = n; }// A function to set number of sessions.
+	void set_d(date dt) { d = dt; }
+	void set_ST(Time st) { start = st; }
+	void set_DT(Time dt) { duration = dt; }
+	void set_stu(student s, int i) { st[i] = s; }
 
 	bool TimeComparison(classroom c1, classroom c2)// A boolean function with two objects to compare the time of classes. 
 	{
@@ -94,10 +80,29 @@ public:
 		return t1;
 
 	}
-	
-
-
-	
-
+	void saveClass()
+	{
+		ofstream classFile("classes.txt", ios::app);
+		if (!classFile.is_open())
+			cout << "Class File not found!\n";
+		string videoPerojector,forumsStr;
+		if (video_projector == true)
+			videoPerojector = "yes";
+		else
+			videoPerojector = "no";
+		if (forums == true)
+			forumsStr = "yes";
+		else
+			forumsStr = "no";
+		classFile << "class Name: " << lesson << " / ID: " << Class_ID << " / start: " << start.ret_h() << ":" << start.ret_m() << " / Forum: " << forumsStr << endl << " / Teacher: " << teacher_name << endl;
+		classFile.close();
+	}
+	int ret_count()
+	{
+		return count;
+	}
 };
+
+int classroom::count = 0;
+
 

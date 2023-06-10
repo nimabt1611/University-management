@@ -38,7 +38,7 @@ int main()
         classroom cr(id, l, tn, vp, f);
         if (f == true)
         {
-            cin >> nos;
+            Ifile >> nos;
             cr.set_num_s(nos);
         }
         int h, m;

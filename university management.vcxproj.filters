@@ -33,4 +33,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="classes.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="student.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="universityinput.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
