@@ -1,3 +1,3 @@
 ﻿  university management.cpp
 C:\Users\GSJ\Desktop\project\classroom.h(75,7): warning C4101: 'hp': unreferenced local variable
-C:\Users\GSJ\Desktop\project\university management.cpp(41,13): error C2065: 'Ifile': undeclared identifier
+  university management.vcxproj -> C:\Users\GSJ\Desktop\project\x64\Debug\university management.exe

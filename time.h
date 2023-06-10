@@ -10,7 +10,7 @@ public:
 	void set(int h, int m) { hour = h; min = m; }// A function to set hours and minutes.
 	int ret_h() { return hour; }//A function to return the hours.
 	int ret_m() { return min; }//A function to return the minutes.
-	bool operator>(Time t)
+	bool operator>(Time t)// a function operator for interference.
 	{
 		int h1 = this->hour;
 		int h2 = t.hour;
